@@ -235,6 +235,7 @@ function appendText(value, context) {
 }
 
 function callbackText(context) {
+	// console.log({context});
 	if (context.text) {
 		context.callbacks.text(context.text);
 		context.text = '';
@@ -319,6 +320,7 @@ function parseNext(context) {
 exports.parse = function(htmlString, callbacks, regex) {
 	htmlString = htmlString.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 	var context = parseContext.create(htmlString, callbacks, regex);
+	// console.log({context});
 	do {
 		parseNext(context);
 	} while (!context.isEof());
