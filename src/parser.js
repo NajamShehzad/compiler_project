@@ -1,6 +1,7 @@
 var parseContext = require('./context');
 var fs = require('fs');
 
+// Reading the Attributes
 function readAttribute(context) {
 	var name = context.readRegex(context.regex.attribute);
 	var value = null, quote = '';
@@ -41,7 +42,6 @@ function readAttribute(context) {
 
 	context.callbacks.attribute(name, value, quote);
 }
-
 function readAttributes(context, isXml) {
 	function isClosingToken() {
 		if (isXml) {
